@@ -1,38 +1,222 @@
+body {
+  background-color: #292524;
+  color: #ccc;
+}
+
+:root {
+  --main-color: #44403c;
+  --button-color: #78716c;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.App h1 {
+  margin-bottom: 30px;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0 15px;
+}
+header span {
+  width: 20px;
+  height: 20px;
+  color: #fdf2f8;
+  background-color: var(--button-color);
+  border-radius: 50%;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  margin-right: 8px;
+  margin-bottom: -4px;
+}
+header .nav__title {
+  display: flex;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40rem;
+  border-radius: 5px;
+  padding: 10px;
+  min-height: 200px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.todo {
+  display: flex;
+  justify-content: space-between;
+  width: 25rem;
+  margin: 3px 0;
+  align-items: center;
+  background-color: var(--main-color);
+  color: #ccc;
+  border-radius: 2px;
+  padding: 14px 8px;
+  border: none;
+  font-size: 1.4rem;
+}
+
+button {
+  background-color: var(--button-color);
+  border-radius: 4px;
+  padding: 6px;
+  color: #d6d3d1;
+  border: none;
+}
+button:hover {
+  background-color: #a8a29e;
+  color: #44403c;
+}
+
+input {
+  margin-right: 5px;
+  border-radius: 3px;
+  border-style: none;
+  width: 100%;
+  padding: 10px 5px;
+  border: none;
+  background-color: var(--main-color);
+  color: #ccc;
+}
+input::placeholder {
+  color: #888;
+}
+input:focus {
+  border: 1px solid #78716c;
+  outline: none;
+}
+.form {
+  width: 25rem;
+  margin: 2px 0 10px;
+}
+.form div {
+  display: flex;
+  width: 100%;
+}
+
+.btn-todo {
+  margin: 0 5px;
+}
+.btn-delete {
+  background: url(./icons/delete-256.ico);
+}
+
+.btn-edit {
+  background: url(./icons/edit-256.ico);
+}
+.btn-complete {
+  background: url(./icons/checkmark-256.ico);
+}
+.btn-delete,
+.btn-edit,
+.btn-complete {
+  width: 24px;
+  height: 24px;
+  background-size: cover;
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.btn-delete:hover {
+  background-image: url(./icons/delete-256h.ico);
+}
+.btn-complete:hover {
+  background-image: url(./icons/checkmark-256h.ico);
+}
+.btn-edit:hover {
+  background-image: url(./icons/edit-256h.ico);
+}
+.complete > div {
+  text-decoration: line-through;
+  color: #44403c;
+}
+.complete {
+  background-color: #78716c;
+}
+
+.nav__incomplete {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  width: 24rem;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px;
+    min-height: 200px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .App h1 {
+    margin-bottom: 10px;
+    font-size: 32px !important;
+  }
+  header {
+    width: 15rem;
+  }
+  .nav__incomplete {
+    font-size: 16px;
+    width: 100%;
+  }
+  .nav__incomplete div,
+  .nav__incomplete span,
+  .nav__incomplete h2 {
+    font-size: 16px;
+  }
+  .nav__incomplete span {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    padding: 9px;
+  }
+  .form {
+    width: 18rem;
+    margin: 0px 0 15px;
+  }
+  .form div {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+  }
+  .add {
+    padding: 12px 5px;
+    margin-top: 8px;
+  }
+  input {
+    margin-right: 0px;
+    width: 100%;
+    padding: 12px 5px;
+  }
+  .todo {
+    width: 18rem;
+    padding: 10px 8px;
+  }
+  .btn-delete,
+  .btn-edit,
+  .btn-complete {
+    width: 16px;
+    height: 16px;
+    margin-left: 20px;
+    font-size: 1.3rem;
   }
 }
